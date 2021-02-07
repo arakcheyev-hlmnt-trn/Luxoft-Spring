@@ -2,6 +2,9 @@ package com.luxoft.springioc.lab1.model;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+
 public class UsualPerson implements Person {
   private int id;
 
@@ -18,7 +21,10 @@ public class UsualPerson implements Person {
   public UsualPerson() {
   }
 
-  public UsualPerson(int id, String name, Country country) {
+  @Autowired
+  public UsualPerson(@Value("1") int id,
+                     @Value("John Smith") String name,
+                     Country country) {
     this.id = id;
     this.name = name;
     this.country = country;
