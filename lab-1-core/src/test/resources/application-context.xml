@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="person" class="com.luxoft.springioc.lab1.model.UsualPerson" autowire="byName">
+    <bean id="person" class="com.luxoft.springioc.lab1.model.UsualPerson" autowire="byType">
         <property name="name" value="John Smith"/>
         <property name="age" value="35"/>
         <property name="id" value="1"/>
@@ -18,10 +18,10 @@
 
     <bean id="a" class="com.luxoft.springioc.lab1.model.A"/>
 
-    <bean id="country1" class="com.luxoft.springioc.lab1.model.Country">
-        <constructor-arg value="1"/>
-        <constructor-arg value="SDSD"/>
-        <constructor-arg value="SDSD"/>
-    </bean>
+<!--    <bean id="country1" class="com.luxoft.springioc.lab1.model.Country">-->
+<!--        <constructor-arg value="1"/>-->
+<!--        <constructor-arg value="SDSD"/>-->
+<!--        <constructor-arg value="SDSD"/>-->
+<!--    </bean>-->
 
 </beans>
