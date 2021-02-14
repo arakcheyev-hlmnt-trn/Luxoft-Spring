@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.luxoft.springaop.lab5.exceptions.ValidationException;
 import com.luxoft.springaop.lab5.model.Person;
 
 public class AspectsTest {
@@ -25,14 +26,13 @@ public class AspectsTest {
 		person.setAge(50);
 	}
 
-	//@Test(expected=ValidationException.class)
+	@Test(expected=ValidationException.class)
 	public void testValidation() {
 		Person person = (Person) context.getBean("person");
 		person.setAge(101);
 		System.out.println(person);
 	}
 
-	/*
 	@Test
 	public void testValidationException() {
 		try {
@@ -42,6 +42,5 @@ public class AspectsTest {
 			System.out.println("Validation exception occured!");
 		}
 	}
-	*/
 
 }
