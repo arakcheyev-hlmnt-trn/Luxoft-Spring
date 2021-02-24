@@ -18,20 +18,16 @@
         <jdbc:script location="classpath:db-schema.sql"/>
     </jdbc:embedded-database>
 
-<!--    <jdbc:initialize-database data-source="dataSource"  ignore-failures="DROPS">-->
-<!--        <jdbc:script location="classpath:db-schema.sql"/>-->
-<!--    </jdbc:initialize-database>-->
-
     <bean id="countryDao" class="com.luxoft.springdb.lab3.dao.CountryDao">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-<!--    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
-<!--        <property name="driverClassName" value="org.hsqldb.jdbcDriver"/>-->
-<!--        <property name="url" value="jdbc:hsqldb:mem:test"/>-->
-<!--        <property name="username" value="sa"/>-->
-<!--        <property name="password" value=""/>-->
-<!--    </bean>-->
+    <!--    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
+    <!--        <property name="driverClassName" value="org.hsqldb.jdbcDriver"/>-->
+    <!--        <property name="url" value="jdbc:hsqldb:mem:test"/>-->
+    <!--        <property name="username" value="sa"/>-->
+    <!--        <property name="password" value=""/>-->
+    <!--    </bean>-->
 
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
@@ -41,4 +37,9 @@
         <property name="countryDao" ref="countryDao"/>
     </bean>
 
+    <bean id="programmaticTransactionCountryService"
+          class="com.luxoft.springdb.lab3.service.ProgrammaticTransactionCountryServiceImpl">
+        <property name="dao"
+                  ref="countryDao"/>
+    </bean>
 </beans>
