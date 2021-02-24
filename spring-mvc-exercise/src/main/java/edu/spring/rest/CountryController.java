@@ -69,7 +69,7 @@ public class CountryController {
   }
 
   @PutMapping("/country/{id}/holder")
-  public void changeName(
+  public void changeCountryName(
       @PathVariable("id") int id,
       @RequestParam("name") String name
   ) {
